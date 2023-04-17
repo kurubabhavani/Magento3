@@ -1,0 +1,36 @@
+type Query 
+    {
+        vendorDetails:vendorOutput 
+        @resolver(class:"Form\\Empmodule\\Model\\Resolver\\Vendor") 
+        @doc(description:"vendor Details")
+    }
+
+type vendorOutput 
+    {
+        total_count:Int @doc(description: "total no.of vendor"),
+        items:[vendorDetail] @doc(description: "vendor Information")
+    }
+
+type vendorDetail 
+    {
+        firstname:String @doc(description: "vendor first name"),
+        lastname:String @doc(description: "vendor last name"),
+        email:String @doc(description: "vendor email"),
+        telephone:String @doc(description: "vendor telephone"),
+        city:String @DOC(description: "vendor city"),
+        state:String @doc(description: "vendor state"),
+        country:String @doc(description: "vendor country")
+    } 
+    type Mutation {
+         vendorGroupData (input: vendorGroupInput!
+         @doc(description:Input for vendor Group")); vendorGroupOutput
+         @resolver(class : "Form\\Emmodule\\Model\\Resolver\\vendorGroupData")
+         }
+         input vendorGroupInput {
+            vendorTaxClassID : Int! @doc(description: "vendor Tax class ID") 
+            vendorGroupcode : string! @doc(description : "vendor Group code")
+         }
+         type vendorGroupOutput{
+           vendorGroupID : INT @doc(description: "vendor Group ID")
+           vendorGroupCode : string @doc(description: "vendor Group code")
+           }

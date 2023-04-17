@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLScema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Mangento_Cron:etc/crontab.xsd">
+        <group id="default">
+        <job name="demo_cron" instance="Form\Empmodule\Cron\TestDetail" method="execute">
+        <schedule>*/10 * * * *</schedule>
+        </job>
+        </group>
+</config>
